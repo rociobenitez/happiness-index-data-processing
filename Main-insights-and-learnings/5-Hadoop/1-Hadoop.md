@@ -1,15 +1,72 @@
 # Introducción a Hadoop: Manipulación de Datos con HDFS
 
-[Hadoop](https://hadoop.apache.org/) es un framework de código abierto que permite el procesamiento y almacenamiento distribuido de grandes conjuntos de datos en clústeres de servidores. Uno de los componentes centrales de Hadoop es el **Sistema de Archivos Distribuido Hadoop (HDFS)**, que permite el almacenamiento y la recuperación eficiente de datos en un entorno de clúster. Vamos a explorar los conceptos básicos de HDFS y cómo interactuar con él a través de la línea de comandos.
+[Hadoop](https://hadoop.apache.org/) es un framework de código abierto que permite el ***procesamiento y almacenamiento distribuido de grandes conjuntos de datos en clústeres de servidores***. Uno de los componentes centrales de Hadoop es el **Sistema de Archivos Distribuido Hadoop (HDFS)**, que permite el almacenamiento y la recuperación eficiente de datos en un entorno de clúster. Vamos a explorar los conceptos básicos de HDFS y cómo interactuar con él a través de la línea de comandos.
 
-## Características
+## Características 📝
 
-- Distribuido
-- Escalable
-- Tolerante a fallos
-- Open-source
+- **Distribuido y Escalable:** los datos y su procesamiento se distribuyen sobre un clúster de ordenadores (escalado horizontal), desde un único servidor a miles de máquinas.
+- **Tolerante a fallos:** tras detectar un fallo aplica una recuperación automática.
+- **Open-source**
+- **Confiable:** crea múltiples copias de los datos de manera automática.
+- **Portable:** se puede instalar en todo tipo de hardware y sistemas operativos.
 
-## Sintaxis Básica de un Comando HDFS
+## Procesamiento distribuido 🔀
+
+Hadoop sigue un enfoque donde guarda y procesa datos en el mismo lugar, evitando trasladar los datos al sistema de procesamiento. Esto se logra mediante un sistema distribuido con dos tipos de nodos:
+
+1. **Nodos maestros**: Controlan la gestión global, supervisan los trabajos y datos. Por lo general, se utilizan 3 de ellos con hardware más robusto.
+
+2. **Nodos workers**: Manejan datos locales y procesamiento de aplicaciones. El número varía según las necesidades, desde 4 hasta miles, con hardware económico tipo servidor X86.
+
+Además, existen los **nodos edge** que actúan como intermediarios entre el clúster y la red externa, proporcionando interfaces de comunicación.
+
+Cada vez que añadimos un nuevo nodo worker, aumentamos tanto la capacidad como el rendimiento de nuestro sistema.
+
+## Enlaces de interés para empezar a utilizar Hadoop 🔗
+
+- [Amazon Elastic MapReduce(EMR)](https://aws.amazon.com/es/emr/) de AWS
+- [CDH](https://www.cloudera.com/products/open-source/apache-hadoop/key-cdh-components.html) de Cloudera
+- [Dataproc](https://cloud.google.com/dataproc?hl=es) de Google
+- [Azure HDInsight](https://azure.microsoft.com/es-es/products/hdinsight/) de Microsoft
+
+
+## HDFS 💻
+
+Divide los archivos en bloques y los replica en múltiples nodos para garantizar la redundancia y la disponibilidad. Está optimizado para escrituras únicas y lecturas múltiples, y es **ideal para datos de entrada** utilizados en procesos de cómputo.
+
+**No ofrece buen rendimiento para:**
+- Acceder a datos de baja latencia
+- Manejar ficheros pequeños
+- Múltiples escritores
+- Modificaciones arbitrarias de ficheros
+
+Los datos, una vez escritos en HDFS son **immutables**. Cada fichero de HDFS solo permite añadir contenido *(append-only)*. Una vez se ha creado y escrito en él, solo podemos añadir contenido o eliminarlo. Es decir, a priori, no podemos modificar los datos.
+
+*HBase* y *Hive* son soluciones que se construyen sobre HDFS y permiten la modificación de datos, lo que lo convierte en una capa de almacenamiento más versátil.
+
+## Bloques 🧱
+
+Los bloques en HDFS son ***unidades de datos mínimas que se leen o escriben***, generalmente de **128 MB** de tamaño. Los archivos se dividen en bloques, y si un archivo es más pequeño que el tamaño del bloque, ocupará solo el espacio necesario en disco.
+
+Además, los bloques se replican para garantizar la redundancia y la disponibilidad, con un valor predeterminado de *replicación de 3*, lo que significa que un archivo de 600 MB, dividido en 5 bloques, se almacena en 15 bloques en diferentes nodos del clúster.
+
+En HDFS, se pueden identificar **tres tipos de máquinas**:
+
+1. **Namenode:** Actúa como el servidor principal y almacena los metadatos para construir el sistema de archivos a partir de bloques. Controla la ubicación de todos los bloques.
+
+2. **Datanode:** Son los nodos esclavos que almacenan los bloques que componen cada archivo.
+
+3. **Secondary Namenode:** Su función principal es tomar puntos de control de los metadatos del sistema de archivos presentes en el Namenode.
+
+Más información sobre la arquitectura de HDFS en [HDFS-Namenodes-Datanodes.md](/Main-insights-and-learnings/5-Hadoop/5-HDFS-Namenodes-Datanodes.md).
+
+## Instalación 👩🏼‍💻
+
+Mi intento de [instalar Hadoop localmente en macOS](/Main-insights-and-learnings/5-Hadoop/3-Instalar-Hadoop-Mac.md) se convirtió en un desafío, ya que me encontré con varias dificultades. Una de las principales complicaciones fue el error *"Failed to retrieve data from /webhdfs/v1/?op=LISTSTATUS: Server Error"* al usar la interfaz web de Hadoop. Investigando, descubrí que este problema podría estar relacionado con una versión de Java incompatible, especialmente si se tenía una versión superior a Java 11, como se menciona en la documentación de Hadoop.
+
+Después de luchar con estos problemas, decidí cambiar mi enfoque y opté por [instalar Hadoop en Docker](/Main-insights-and-learnings/5-Hadoop/3-Instalar-Hadoop-Docker.md). Esta elección resultó ser más sencilla y efectiva, permitiéndome evitar los obstáculos que encontré al intentar una instalación local.
+
+## Sintaxis Básica de un Comando HDFS ⌨️
 
 Antes de sumergirnos en la manipulación de archivos en HDFS, es importante comprender la sintaxis básica de un comando HDFS. Los comandos de HDFS siguen la siguiente estructura:
 
