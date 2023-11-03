@@ -33,7 +33,7 @@ Antes de comenzar, descarga los siguientes programas:
 
 Después de descargar VirtualBox, instálalo siguiendo las instrucciones proporcionadas en el sitio web de VirtualBox. VirtualBox es una plataforma de virtualización que te permitirá ejecutar Cloudera Quickstart VM en tu sistema.
 
-## Paso 3: Importar Cloudera Quickstart VM
+### Paso 3: Importar Cloudera Quickstart VM
 
 Una vez que tengas VirtualBox instalado, importa la máquina virtual de Cloudera Quickstart. Para hacerlo, sigue estos pasos:
 
@@ -42,7 +42,7 @@ Una vez que tengas VirtualBox instalado, importa la máquina virtual de Cloudera
 3. Selecciona el archivo de Cloudera Quickstart VM que descargaste.
 4. Haz clic en "Siguiente" (Next) y sigue las instrucciones del asistente de importación.
 
-## Paso 4: Configurar y Ejecutar Cloudera Quickstart VM ✔️
+### Paso 4: Configurar y Ejecutar Cloudera Quickstart VM ✔️
 
 Una vez importada la máquina virtual, configura la cantidad de recursos (CPU, memoria, etc.) según tus necesidades y preferencias.
 
