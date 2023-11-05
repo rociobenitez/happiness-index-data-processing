@@ -18,14 +18,15 @@ Algunas de las ***características clave*** de Cloudera Quickstart VM incluyen:
 
 ## Guía de Instalación de Cloudera Quickstart VM 📄
 
-A continuación, te proporcionamos una guía paso a paso para instalar Cloudera Quickstart VM en tu sistema. Asegúrate de seguir estos pasos para aprovechar al máximo esta máquina virtual.
+A continuación, te proporcionamos una guía paso a paso para instalar Cloudera Quickstart VM en tu sistema.
 
 ### Paso 1: Descargar los Programas Necesarios ✔️
 
 Antes de comenzar, descarga los siguientes programas:
 
+- Java JDK: Asegúrate de tener Java JDK instalado en Mac, ya que muchas de las herramientas de big data requieren Java. Puedes instalar Java desde el sitio web de Oracle o utilizando herramientas como Homebrew. En este archivo explico [cómo instalar Java en macOS](/Main-insights-and-learnings/1-Java/3-Instalar-Java-en-Mac.md).
 - Cloudera Quickstart VM: Puedes obtener la última versión de [Cloudera Quickstart VM aquí](https://www.cloudera.com/downloads/quickstart_vms/5-15.html). Si quieres instalarlo en Mac (M1), puedes entrar en [este enlace](https://community.cloudera.com/t5/Support-Questions/Installing-Cloudera-VM-in-M1-Mac/m-p/322909) y seguir las indicaciones. 
-- VirtualBox: Necesitarás una plataforma de virtualización para ejecutar la máquina virtual. Descarga [VirtualBox aquí](https://www.virtualbox.org/). Para Mac (M1/M2), entra en este enlace [Download VirtualBox (Old Builds)](https://www.virtualbox.org/wiki/Download_Old_Builds_7_0) o lee el artículo [Best virtual machine software for Mac 2023](https://www.macworld.com/article/668848/best-virtual-machine-software-for-mac.html) 
+- VirtualBox: Necesitarás una plataforma de virtualización para ejecutar la máquina virtual. Descarga [VirtualBox desde su sitio web](https://www.virtualbox.org/). Para Mac (M1/M2), entra en este enlace [Download VirtualBox (Old Builds)](https://www.virtualbox.org/wiki/Download_Old_Builds_7_0) o lee el artículo [Best virtual machine software for Mac 2023](https://www.macworld.com/article/668848/best-virtual-machine-software-for-mac.html) 
 - Mobaxterm (Windows): Una herramienta de terminal para la administración de sistemas. Descarga [Mobaxterm aquí](https://mobaxterm.mobatek.net/download.html).
 - WinSCP (Windows): Un cliente SFTP y SCP para Windows. Descarga [WinSCP aquí](https://winscp.net/eng/download.php).
 
@@ -56,8 +57,11 @@ Durante esta sección del módulo de Big Data Processing, hemos adquirido conoci
 
 Sin embargo, a lo largo de este proceso, hemos enfrentado ***desafíos*** significativos, particularmente en relación a la *instalación de Cloudera Quickstart VM en sistemas Mac*. En respuesta a estos desafíos, hemos explorado alternativas y soluciones que nos permiten seguir avanzando en nuestro aprendizaje y experimentación con tecnologías de Big Data.
 
+Explico las [limitaciones encontradas al instalar VirtualBox en este archivo](/Main-insights-and-learnings/4-Cloudera-Quickstart-VM/Limitaciones-VirtualBox-en-Mac.md).
+
 ## Enlaces de interés 🔗
 
 - [Installing Cloudera VM in M1 Mac](https://community.cloudera.com/t5/Support-Questions/Installing-Cloudera-VM-in-M1-Mac/m-p/322909)
 - [UTM](https://mac.getutm.app/)
 - [VirtualBox para Mac M1/M2](https://www.virtualbox.org/wiki/Download_Old_Builds_7_0)
+- [VirtualBox: Supported Host Operating Systems](https://www.virtualbox.org/manual/ch01.html#hostossupport)
