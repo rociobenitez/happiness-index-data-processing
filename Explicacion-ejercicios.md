@@ -22,22 +22,21 @@ Se agruparon la data por continente y se encontró el país más feliz en cada u
 
 ## Ejercicio 3: País que más veces ocupó el Primer Lugar de Felicidad 🌏
 
-En este ejercicio, se ha realizado un análisis para determinar cuál es el país que ocupó más veces el primer lugar en el índice "Life Ladder" a lo largo de los años.
+En este ejercicio, se determinó cuál es el país que más veces ocupó el primer lugar en el índice de felicidad desde 2005 hasta 2021. Se verificó esta información de tres maneras diferentes:
 
-Primero, se cargó el conjunto de datos "world-happiness-report.csv", que contiene información sobre la felicidad y otros indicadores económicos y sociales en diferentes países a lo largo de varios años.
+1. Utilizando `idxmax()`: Se agruparon los datos por año y se encontró el país con la puntuación más alta de "Life Ladder" en cada año a través del índice correspondiente.
 
-Se agruparon los datos por año y se encontró el país con la puntuación más alta en el índice "Life Ladder" en cada año. Esto se logró utilizando la función `idxmax()`, que encuentra el índice del valor máximo en la columna "Life Ladder" para cada año. Se obtuvieron los nombres de los países y los años correspondientes a los índices máximos y se almacenaron en un DataFrame llamado "paises_mas_felices."
+2. Utilizando `max()`, `lambda`, y `.items()`: Se encontraron los países con la máxima puntuación de "Life Ladder" para cada año, comprobando si el par (año, "Life Ladder") estaba en los valores máximos calculados.
 
-Después, se creó un diccionario llamado "paises_contados" para contar cuántas veces aparece cada país como el país más feliz en diferentes años. Se llenó el diccionario y se contaron las apariciones de cada país.
+3. Utilizando una columna 'Rank': Se creó una columna 'Rank' para el país más feliz de cada año y se filtró por el rango igual a 1.
 
-Por último, se muestra el resultado en el formato deseado, enumerando los países que ocuparon el primer lugar más de una vez y la cantidad de veces que lo hicieron. También se tuvo en cuenta cuál fue el país más feliz en el año 2021, que resultó ser Finland.
+En los tres enfoques, se identificó a Dinamarca como el país que más veces ocupó el primer lugar, con un total de 7 apariciones en la posición más alta del índice de felicidad (entre 2005 y 2019).
 
-Este ejercicio reveló ***un empate entre Dinamarca y Finlandia como los países que más veces ocuparon el primer lugar en el índice "Life Ladder" a lo largo de los años, con un total de 7 veces cada uno.***
+Finalmente el ejercicio reveló que ***Finlandia y Dinamarca han compartido el primer lugar en siete ocasiones desde 2005 hasta 2021, lo que ha dado lugar a un empate en la posición de liderazgo.***
 
 ## Ejercicio 4: Puesto de Felicidad del País con Mayor GDP en 2020 🌍
 
 Se identifica el puesto de felicidad del país con el mayor GDP en 2020. Se utiliza el DataFrame de felicidad que contiene datos de 2020. Se usa Window para agrupar por año y ordenar descendentemente por "Log GDP per capita". Se crean las columnas "GDP Rank" y "Life Ladder Rank" para ver el ranking según el índice GDP y el de felicidad. Luego, se filtra por el año 2020 y GDP Rank=1 para ver el país con el mayor GDP en ese año. Los resultados muestran que Irlanda tiene el mayor GDP en 2020 y ocupa el puesto número 13 entre los países más felices.
-
 
 En este ejercicio, se ha realizado un análisis para determinar el puesto de felicidad (índice de felicidad) del país con el mayor Producto Interno Bruto (GDP) en el año 2020. 
 
