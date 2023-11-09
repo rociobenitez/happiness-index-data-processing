@@ -68,6 +68,11 @@ Beeline version 2.3.9 by Apache Hive
 
 Ejecuta algunas consultas de Hive para comenzar a trabajar con tus datos.
 
-## Nota
+## Nota 📝
 
 Recuerda que esta documentación se basa en las instrucciones proporcionadas en la [documentación oficial de Apache Hive](https://hive.apache.org/developement/quickstart/) y puede estar sujeta a cambios. Asegúrate de consultar la documentación más reciente para obtener detalles actualizados.
+
+## Enlaces de interés 🔗
+
+- [Web oficial Apache Hive](https://hive.apache.org/)
+- [Hive en Docker](https://hub.docker.com/r/apache/hive)

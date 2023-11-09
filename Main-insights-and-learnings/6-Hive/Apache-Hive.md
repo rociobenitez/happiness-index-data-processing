@@ -18,7 +18,65 @@ Apache Hive es una infraestructura de almacenamiento de datos construida sobre H
 
 - **Limitaciones en SQL**: Hive tiene un soporte SQL limitado en comparación con bases de datos relacionales. No admite subconsultas, transacciones ni índices, lo que lo hace menos adecuado para aplicaciones que requieren transacciones y consultas complejas.
 
-## Ejemplos de comandos HiveQL
+## Componentes 🧩
+
+![Arquitectura Hive](/Main-insights-and-learnings/6-Hive/img/hive-arq.png)
+
+### Hive Server
+
+HiveServer 2 (HS2) es la versión más reciente del servicio, permitiendo a clientes externos ejecutar consultas contra Apache Hive y obtener resultados. Utiliza Thrift RPC, admite clientes concurrentes y se inicia con el comando `hiveserver2`, escuchando en el puerto 10000.
+
+```bash
+iabd@iabd-virtualbox:~$ hiveserver2
+2023-01-20 09:39:51: Iniciando HiveServer2
+SLF4J: La ruta de clase contiene múltiples implementaciones de SLF4J.
+SLF4J: ...
+ID de sesión Hive = 9e39b0c8-45a6-46ca-bfb0-6e320c85f989
+```
+
+Conéctate a este servidor utilizando la herramienta *Beeline (Beeline CLI)*.
+
+### Hive Metastore
+
+Es el **repositorio central para los metadatos de Hive**, almacenado en una *base de datos relacional* como MySQL, PostgreSQL o Apache Derby (incorporado). Gestiona metadatos, tablas y tipos mediante ***Hive DDL (Lenguaje de Definición de Datos)***. El metastore se puede configurar para almacenar estadísticas de operaciones y registros de autorización para optimizar consultas.
+
+En versiones recientes de Hive, el metastore se puede desplegar de forma remota e independiente, evitando compartir la misma JVM con HiveServer. Incluye el Catálogo de Hive (HCatalog), que proporciona acceso a los metadatos como una API. Al poder desplegarse de forma independiente, otras aplicaciones pueden utilizar el esquema sin necesidad de desplegar el motor de consultas de Hive. En la sesión del Catálogo de Spark, veremos cómo herramientas externas acceden y utilizan los metadatos almacenados.
+
+Accede al Metastore utilizando *HiveCLI* o de forma remota a través de *Hive Server mediante Beeline*.
+
+### Beeline
+
+Hive incluye Beeline, un cliente basado en **JDBC para consultas de línea de comandos** contra Hive Server. Funciona sin dependencias de Hive, y puedes usar el siguiente comando:
+
+```bash
+iabd@iabd-virtualbox:~$ beeline
+SLF4J: La ruta de clase contiene múltiples implementaciones de SLF4J.
+SLF4J: ...
+Beeline versión 3.1.2 de Apache Hive
+beeline>
+```
+
+Alternativamente, puedes usar *Hive CLI*, un cliente basado en *Apache Thrift* que utiliza los mismos controladores que Hive.
+
+
+## Tipos de datos 💻
+
+En Hive, los tipos de datos son similares a los utilizados en el DDL de SQL. Los **tipos simples** comunes incluyen `STRING` e `INT`, aunque también se pueden usar otros como `TINYINT, BIGINT, DOUBLE, DATE, TIMESTAMP`, entre otros.
+
+Para realizar conversiones explícitas de tipos, como de texto a numérico, se emplea la función CAST:
+
+```sql
+SELECT CAST('1' AS INT) FROM tablaPruebas;
+```
+
+En cuanto a los **tipos compuestos**, existen tres:
+
+1. Arrays con el tipo `ARRAY`, para agrupar elementos del mismo tipo: `["manzana", "pera", "naranja"]`.
+2. Mapas con el tipo `MAP`, para definir parejas clave-valor: `{1: "manzana", 2: "pera"}`.
+3. Estructuras con el tipo `STRUCT`, para definir objetos con propiedades: `{"fruta": "manzana", "cantidad": 1, "tipo": "postre"}`.
+```
+
+## Ejemplos de comandos HiveQL 👩🏼‍💻
 
 - Crear una tabla:
 
@@ -59,9 +117,8 @@ Apache Hive es una infraestructura de almacenamiento de datos construida sobre H
     JOIN departamentos d ON e.departamento_id = d.id;
     ```
 
-Gracias por proporcionar información adicional sobre la creación de la base de datos y la tabla en Hive, así como la explicación de la ubicación de los datos en HDFS y cómo realizar diversas operaciones. Aquí está la información ampliada para completar la explicación anterior:
 
-## Creación de la base de datos y la tabla en Hive
+## Creación de la base de datos y la tabla en Hive 💻
 
 En Hive, puedes definir la estructura de tus tablas, incluyendo el formato y la ubicación en HDFS. Algunas de las especificaciones comunes incluyen:
 
@@ -89,7 +146,7 @@ LINES TERMINATED BY '\n'
 STORED AS TEXTFILE;
 ```
 
-## Ubicación de la base de datos y la tabla en HDFS
+## Ubicación de la base de datos y la tabla en HDFS 💻
 
 - Por defecto, Hive crea bases de datos y tablas en la ruta HDFS "/user/hive/warehouse". Hive automáticamente convierte el nombre de la base de datos y la tabla a minúsculas y agrega ".db" a la base de datos en HDFS. Por ejemplo, "MIUSUARIO_TEST" se convierte en "miusuario_test.db".
 - Para listar el contenido de la carpeta de una base de datos en HDFS, puedes usar el comando `hdfs dfs -ls`:
@@ -150,7 +207,7 @@ hdfs dfs -ls /user/miusuario/bd/miusuario_test2
 hdfs dfs -ls /user/miusuario/bd/miusuario_test2/persona
 ```
 
-### Consideraciones adicionales
+### Consideraciones adicionales 
 
 - Para eliminar todo el contenido de una tabla, puedes utilizar `TRUNCATE TABLE MI_BASE_DE_DATOS.MI_TABLA`. Sin embargo, este comando no funciona sobre tablas "EXTERNAL". En ese caso, debes utilizar `hdfs dfs -rm -r -f /ruta/a/mi/tabla/*` para eliminar los archivos HDFS de la tabla "EXTERNAL".
 
@@ -159,3 +216,10 @@ hdfs dfs -ls /user/miusuario/bd/miusuario_test2/persona
 - Puedes agregar validadores "IF EXISTS" o "IF NOT EXISTS" en algunas sentencias para verificar si algo existe antes de ejecutar la sentencia. Por ejemplo, `CREATE DATABASE IF NOT EXISTS MI_BASE_DE_DATOS`, `CREATE TABLE IF NOT EXISTS MI_BASE_DE_DATOS.MI_TABLA`, `DROP TABLE IF EXISTS MI_BASE_DE_DATOS.MI_TABLA`, `DROP DATABASE IF EXISTS MI_BASE_DE_DATOS`. Estos validadores ayudan a evitar errores cuando trabajas con bases de datos y tablas en Hive.
 
 Recuerda que la forma en que se gestionan los datos en Hive depende de si la tabla es "INTERNAL" o "EXTERNAL". La elección del tipo de tabla dependerá de tus necesidades de retención de datos en HDFS.
+
+
+## Enlaces de interés 🔗
+
+- [Web oficial Apache Hive](https://hive.apache.org/)
+- [Hive en Docker](https://hub.docker.com/r/apache/hive)
+- [Hive](https://aitor-medrano.github.io/iabd2223/hadoop/06hive.html)
