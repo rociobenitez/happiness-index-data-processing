@@ -18,9 +18,13 @@ HDFS es el sistema de almacenamiento distribuido de Hadoop, diseñado para el ma
 
 Modelo de programación y procesamiento de datos en Hadoop. Basado en el *principio de dividir y conquistar*, MapReduce divide el proceso de análisis en etapas de "map" y "reduce", lo que permite el **procesamiento en paralelo** en varios nodos del clúster.
 
+![Map Reduce Proceso](/Main-insights-and-learnings/5-Hadoop/img/map-reduce.png)
+
 ### Yarn (Yet Another Resource Negotiator)
 
 YARN es un administrador de recursos y programación de trabajos en clústeres. Permite la ejecución de aplicaciones más allá de MapReduce, como Spark y Hive.
+
+![Map Reduce Proceso](/Main-insights-and-learnings/5-Hadoop/img/yarnArquitectura.png)
 
 ## Otros componentes 🧩
 

@@ -1,3 +1,7 @@
+# Arquitectura HDFS
+
+![Arquitectura de HDFS](/Main-insights-and-learnings/5-Hadoop/img/hdfs-Arquitectura.png)
+
 En HDFS (Hadoop Distributed File System), encontramos los siguientes elementos:
 
 ## Namenodes
@@ -18,8 +22,6 @@ En HDFS (Hadoop Distributed File System), encontramos los siguientes elementos:
 
 Dicho de otra manera, el `Namenode` es esencial para la operación de HDFS y almacena metadatos críticos, mientras que el `Secondary Namenode` no es un respaldo del Namenode, pero juega un papel importante en la protección de los metadatos. Estos nodos **trabajan juntos** para mantener y gestionar el sistema de archivos distribuidos. HDFS se utiliza en implementaciones a gran escala, como en Facebook, donde gestionan un clúster masivo con miles de nodos y petabytes de almacenamiento.
 
-
-
 ## Datanodes
 
 - Puede haber ***varios*** Datanodes en un clúster HDFS, con múltiples Datanodes por cada Namenode.
@@ -36,6 +38,8 @@ Dicho de otra manera, el `Namenode` es esencial para la operación de HDFS y alm
 4. Los datos se leen desde el Datanode mediante llamadas al método `read()`. Una vez que se completa la lectura de un bloque, el flujo de datos cambia al Datanode siguiente.
 5. Este proceso continúa hasta que el cliente completa la lectura y cierra la conexión con el flujo de datos. Se gestionan errores y reintentos automáticamente.
 
+![Proceso lectura hdfs](/Main-insights-and-learnings/5-Hadoop/img/hdfs-read.png)
+
 ### Proceso de Escritura
 
 1. El cliente crea un archivo utilizando el método `create()` del `DistributedFileSystem`.
@@ -46,6 +50,8 @@ Dicho de otra manera, el `Namenode` es esencial para la operación de HDFS y alm
 6. Cuando el cliente finaliza la escritura de los datos, cierra el flujo de datos, lo que libera los paquetes pendientes al pipeline de Datanodes. El Namenode se informa de la finalización de la escritura y de los bloques finales que componen el archivo.
 
 Estos procesos de lectura y escritura aseguran la integridad y disponibilidad de los datos almacenados en HDFS. Los Datanodes juegan un papel fundamental al almacenar y recuperar los bloques de datos en el clúster.
+
+![Proceso escritura hdfs](/Main-insights-and-learnings/5-Hadoop/img/hdfs-wrike.png)
 
 ## HDFS por dentro
 

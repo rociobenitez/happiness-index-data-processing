@@ -8,6 +8,8 @@ Primero, se cargó el conjunto de datos "world-happiness-report-2021.csv," que c
 
 Finalmente, se muestra el resultado, indicando que ***Finlandia es el país más "feliz" en el año 2021.***
 
+
+
 ## Ejercicio 2: País Más Feliz por Continente en 2021 🌍
 
 En este ejercicio, se ha realizado un análisis para determinar cuál es el país más "feliz" del año 2021 en cada continente, según la data disponible.
@@ -19,6 +21,8 @@ Se crea un diccionario llamado "region_to_country" para mapear las regiones a su
 Se agruparon la data por continente y se encontró el país más feliz en cada uno. Esto se logró utilizando la función `apply()` y seleccionando el país con la puntuación más alta en el índice "Ladder score." Finalmente, se muestran los resultados en el formato deseado, indicando el país más feliz en cada continente.
 
 ***Finlandia es el país más feliz en Europa, Israel en África, Nueva Zelanda en América y Taiwán en Asia.***
+
+
 
 ## Ejercicio 3: País que más veces ocupó el Primer Lugar de Felicidad 🌏
 
@@ -34,6 +38,8 @@ En los tres enfoques, se identificó a Dinamarca como el país que más veces oc
 
 Finalmente el ejercicio reveló que ***Finlandia y Dinamarca han compartido el primer lugar en siete ocasiones desde 2005 hasta 2021, lo que ha dado lugar a un empate en la posición de liderazgo.***
 
+
+
 ## Ejercicio 4: Puesto de Felicidad del País con Mayor GDP en 2020 🌍
 
 Se identifica el puesto de felicidad del país con el mayor GDP en 2020. Se utiliza el DataFrame de felicidad que contiene datos de 2020. Se usa Window para agrupar por año y ordenar descendentemente por "Log GDP per capita". Se crean las columnas "GDP Rank" y "Life Ladder Rank" para ver el ranking según el índice GDP y el de felicidad. Luego, se filtra por el año 2020 y GDP Rank=1 para ver el país con el mayor GDP en ese año. Los resultados muestran que Irlanda tiene el mayor GDP en 2020 y ocupa el puesto número 13 entre los países más felices.
@@ -46,6 +52,8 @@ Una vez determinado el país con el mayor GDP, se procedió a buscar su puesto d
 
 ***El país con el mayor GDP en 2020 resultó ser Irlanda, y su puntaje de felicidad en 2020 fue de 7.035.***
 
+
+
 ## Ejercicio 5: Variación en el GDP Promedio a nivel mundial entre 2020 y 2021 🌍
 
 Se ha realizado un análisis para determinar la variación porcentual en el GDP promedio a nivel mundial entre los años 2020 y 2021. Primero se cargaron dos conjuntos de datos (datasets): "world-happiness-report.csv" y "world-happiness-report-2021.csv" y se filtraron los registros correspondientes al año 2020 del primer conjunto de datos (data_2020).
@@ -55,6 +63,8 @@ Después, se calculó el promedio del GDP per cápita para el año 2020 y el añ
 Se creó un DataFrame llamado "df_promedios" que contiene los promedios de GDP para ambos años. Además, se calculó la variación porcentual del GDP promedio entre 2020 y 2021 y se agregó como una nueva columna llamada "Variación" en el DataFrame.
 
 Finalmente, se muestran los resultados. La variación porcentual se calculó como `(GDP promedio 2020 - GDP promedio 2021) / GDP promedio 2021 * 100`. En este caso, la ***variación fue positiva***, lo que significa que el ***GDP promedio aumentó en un 3.38% en 2021 en comparación con 2020***. El mensaje de salida indica que el GDP promedio aumentó en un 3.38%.
+
+
 
 ## Ejercicio 6: País con Mayor Expectativa de Vida y su indicador en 2019 🌏
 
