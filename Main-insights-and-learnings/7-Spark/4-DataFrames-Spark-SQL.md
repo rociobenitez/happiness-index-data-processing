@@ -22,6 +22,8 @@ Se resume a continuación lo trabajado en el archivo [4-DataFrames-Spark-SQL.ipy
 
 10. **Creación y Guardado de DataFrames a partir de CSV:** Creamos un DataFrame a partir de un archivo CSV y también guardamos un DataFrame como un archivo CSV.
 
+**Nota: Puedes obtener el csv que se ha trabajo en este ejemplo a través del siguiente enlace: [WorldCupPlayers.csv](https://drive.google.com/file/d/1-lZ-6ImOtP0N1s-dCbMdp4EEpJk1ZThU/view?usp=sharing)**
+
 ## Enlaces de interés 🔗
 
 - [Spark SQL](https://spark.apache.org/sql/)
