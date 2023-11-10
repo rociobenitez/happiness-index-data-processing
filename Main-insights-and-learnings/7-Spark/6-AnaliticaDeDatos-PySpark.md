@@ -34,3 +34,5 @@ Se resume a continuación lo trabajado en el archivo [6-AnaliticaDeDatos-PySpark
    5.5 Like
    5.6 GroupBy
    5.7 Agregaciones
+
+**Nota: Puedes obtener el csv que se ha trabajo en este ejemplo a través del siguiente enlace: [stocks_price_final.csv](https://drive.google.com/file/d/1ZlCDDAlm-SH4mfBMR79sY7kwU5fo_lh4/view?usp=drive_link)**
