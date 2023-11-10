@@ -2,7 +2,7 @@
 
 En esta guía, aprenderás cómo trabajar con PySpark en Jupyter Notebook para el análisis de datos y procesamiento a gran escala. PySpark es la interfaz de Python para el framework de procesamiento de datos distribuidos Apache Spark.
 
-**Nota: También puedes ver el archivo de [PySpark en Jupyter Notebook](3-PySpark-JupyterNotebook.ipynb)**
+**Nota: También puedes ver el archivo de [PySpark en Jupyter Notebook](3-PySpark-JupyterNotebook.ipynb). Puedes obtener el csv que se ha trabajo en este ejemplo a través del siguiente enlace: [cereal.csv](https://drive.google.com/file/d/1fEkBoacXZLnz2kl2OZyG1xjhrl0vbRAC/view?usp=sharing)**
 
 ![Comprobación Spark](/Main-insights-and-learnings/7-Spark/img/test_spark.png)
 
