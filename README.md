@@ -24,6 +24,10 @@ El tema central de este repositorio es analizar el índice de felicidad en difer
 
 - **Datasets:** El directorio `Datasets` contiene los datos utilizados en los cuadernos Jupyter. Puedes utilizar estos conjuntos de datos para practicar tareas de procesamiento y análisis de datos.
 
+- **["Explorando el Mundo del Big Data"](https://medium.com/@rociobenitez2403/explorando-el-mundo-del-big-data-4f0b55e50bfc)**: Puedes leer el artículo publicado en Medium donde explico las conclusiones, ideas y lecciones principales aprendidas durante este módulo.
+
+- **Main-insights-and-learnings**: En esta carpeta se organizan los principales insights y lecciones que se han trabajado durante el módulo con el fin de reforzar el contenido del artículo anterior.
+
 ## Uso 👩🏼‍💻
 
 1. Clona o descarga este repositorio en tu máquina local.
