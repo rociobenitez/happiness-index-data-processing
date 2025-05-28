@@ -1,46 +1,69 @@
-# Procesamiento de Big Data - Informe de Felicidad Mundial 😁
+# Happiness Index Analysis
 
-Este repositorio contiene cuadernos Jupyter y conjuntos de datos para tareas de análisis y procesamiento de datos relacionadas con el informe de felicidad en varios países a lo largo de los años. Los datos provienen de dos fuentes principales: "world-happiness-report-2021.csv" y "world-happiness-report.csv".
+Este repositorio contiene un proyecto de análisis de datos sobre el informe de felicidad mundial, combinando técnicas de preprocesamiento, análisis exploratorio y visualización utilizando Jupyter Notebooks.
 
-## Tema y Objetivo 🎯
+**El objetivo es explorar la relación entre el índice de felicidad, el GDP per cápita, la expectativa de vida y otros indicadores a lo largo de los años**.
 
-El tema central de este repositorio es analizar el índice de felicidad en diferentes países a lo largo de los años y responder a una serie de preguntas específicas utilizando las herramientas aprendidas durante el módulo de Big Data Processing. Las preguntas incluyen:
+## Objetivos del Proyecto
 
-1. **¿Cuál es el país más "feliz" del 2021 según los datos?** Considerando que la columna "Ladder score" tiene un mayor número para países más felices.
+- Explorar la felicidad mundial utilizando conjuntos de datos reales (2020-2021).
+- Comparar el índice de felicidad por país, región y año.
+- Relacionar variables socioeconómicas (GDP, expectativa de vida) con la percepción de bienestar.
+- Aplicar técnicas básicas de análisis de datos usando Python (pandas, matplotlib, seaborn).
 
-2. **¿Cuál es el país más "feliz" del 2021 por continente según la data?** Para analizar la felicidad en diferentes continentes.
+## Estructura del Repositorio
 
-3. **¿Cuál es el país que más veces ocupó el primer lugar en todos los años?** Identificando el país con el índice de felicidad más alto de manera recurrente.
+```
+.
+├── docs/
+│   └── questions-analysis.md
+├── notebooks/
+│   ├── data-analysis.ipynb
+│   └── data-visualization.ipynb
+├── data/
+│   ├── world-happiness-report-2021.csv
+│   └── world-happiness-report.csv
+```
 
-4. **¿Qué posición en el índice de felicidad tiene el país con el mayor GDP en 2020?** Relacionando el GDP con el índice de felicidad.
+## Ejercicios y Análisis
 
-5. **¿En qué porcentaje ha variado el GDP promedio a nivel mundial del 2020 al 2021? ¿Aumentó o disminuyó?** Analizando la variación en el GDP promedio global.
+El cuaderno Jupyter analiza los siguientes puntos clave:
 
-6. **¿Cuál es el país con la mayor expectativa de vida ("Healthy life expectancy at birth")? ¿Cuál era ese indicador en 2019?** Identificando el país con la expectativa de vida más alta y comparándola con datos anteriores.
+1. **País más feliz del mundo en 2021**  
+   Se determina mediante el mayor `Ladder score`.
 
-## Contenido 📊
+2. **País más feliz por continente**  
+   A partir del mapeo entre regiones y continentes se identifica el país líder en cada uno.
 
-- **Jupyter Notebook:** Explora el cuaderno de Jupyter en este repositorio para llevar a cabo el análisis de los datos y responder a las preguntas mencionadas. Este cuaderno contiene el código, explicaciones y visualizaciones que facilitarán la comprensión y el trabajo con los conjuntos de datos.
+3. **País que más veces ocupó el primer lugar entre 2005 y 2021**  
+   Se evalúa con varias estrategias (`idxmax()`, `apply()`, rankings).
 
-- **Datasets:** El directorio `Datasets` contiene los datos utilizados en los cuadernos Jupyter. Puedes utilizar estos conjuntos de datos para practicar tareas de procesamiento y análisis de datos.
+4. **Relación entre GDP y felicidad**  
+   Se analiza la posición en el ranking de felicidad del país con mayor GDP en 2020.
 
-- **["Explorando el Mundo del Big Data"](https://medium.com/@rociobenitez2403/explorando-el-mundo-del-big-data-4f0b55e50bfc)**: Puedes leer el artículo publicado en Medium donde explico las conclusiones, ideas y lecciones principales aprendidas durante este módulo.
+5. **Variación del GDP promedio mundial entre 2020 y 2021**  
+   Se calcula la variación porcentual y se analizan sus implicaciones.
 
-- **Main-insights-and-learnings**: En esta carpeta se organizan los principales insights y lecciones que se han trabajado durante el módulo con el fin de reforzar el contenido del artículo anterior.
+6. **País con mayor expectativa de vida**  
+   Se compara el indicador en los años 2019, 2020 y 2021.
 
-## Uso 👩🏼‍💻
+> Ver detalles completos en [`docs/questions-analysis.md`](docs/questions-analysis.md)
 
-1. Clona o descarga este repositorio en tu máquina local.
-2. Abre el cuaderno Jupyter utilizando [Jupyter Notebook](https://jupyter.org/) o [Jupyter Lab](https://jupyterlab.readthedocs.io/en/latest/).
-3. Ejecuta el cuaderno para explorar y llevar a cabo tareas de procesamiento de datos.
-4. Personaliza el cuaderno o utiliza los conjuntos de datos proporcionados para tus propios proyectos de análisis de datos.
+## Uso del repositorio
 
-## Contribuciones 💻
+1. Clona o descarga este repositorio:
 
-Las contribuciones a este repositorio son bienvenidas. Si tienes cuadernos Jupyter, conjuntos de datos o mejoras para el contenido existente, considera crear una solicitud de extracción.
+```bash
+git clone git@github.com:rociobenitez/happiness-index-data-processing.git
+cd happiness-index-data-processing
+```
 
-## Contacto 📨
+2. Instala las dependencias:
 
-Si tienes preguntas o necesitas ayuda, no dudes en ponerte en contacto [conmigo](mailto:rociobenitez2403@gmail.com).
+```bash
+pip install -r requirements.txt
+```
 
-¡Feliz procesamiento de datos! 😊
+3. Abre los notebooks utilizando [Jupyter Notebook](https://jupyter.org/) o [Jupyter Lab](https://jupyterlab.readthedocs.io/en/latest/).
+
+4. Explora y analiza los datos ejecutando los cuadernos disponibles, especialmente `data-visualization.ipynb` para visualizaciones y `questions-analysis.ipynb` para insights.
