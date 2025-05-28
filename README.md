@@ -14,15 +14,15 @@ Este repositorio contiene un proyecto de análisis de datos sobre el informe de 
 ## Estructura del Repositorio
 
 ```
-.
+happiness-index-data-processing/
+├── data/
+│   ├── world-happiness-report-2021.csv
+│   └── world-happiness-report.csv
 ├── docs/
 │   └── questions-analysis.md
 ├── notebooks/
 │   ├── data-analysis.ipynb
 │   └── data-visualization.ipynb
-├── data/
-│   ├── world-happiness-report-2021.csv
-│   └── world-happiness-report.csv
 ```
 
 ## Ejercicios y Análisis
